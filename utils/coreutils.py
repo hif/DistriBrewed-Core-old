@@ -1,8 +1,10 @@
 #!/usr/bin python
 import importlib
-import core.config
-import core.defaults as defaults
-import core.utils.logging as log
+import config as cfg
+import defaults as defaults
+import utils.logging as log
+import devices as devices
+import workers as workers
 
 
 def construct_class_instance(class_module_path, param=None):
@@ -19,7 +21,7 @@ def construct_class_instance(class_module_path, param=None):
 def load_device(config, owner, simulation):
     try:
         device_instance = construct_class_instance(config.device_class, config)
-        if not issubclass(device_instance.__class__, core.devices.device.Device):
+        if not issubclass(device_instance.__class__, devices.device.Device):
             log.error('Unable to load device from config: {0} is not a subclass of core.devices.device.Device'.
                   format(config.class_name))
             return None
@@ -34,7 +36,7 @@ def load_device(config, owner, simulation):
 def load_worker(communication_config, config):
     try:
         worker_instance = construct_class_instance(config.class_name, config.name)
-        if not issubclass(worker_instance.__class__, core.workers.baseworker.BaseWorker):
+        if not issubclass(worker_instance.__class__, workers.baseworker.BaseWorker):
             log.error('Unable to load worker from config: {0} is not a subclass of core.workers.BaseWorker'.
                   format(config.class_name))
             return None
@@ -53,7 +55,7 @@ def load_worker(communication_config, config):
 
 def parse_config(configfile=defaults.DEFAULT_CONFIG):
     try:
-        config = core.config.Config(configfile)
+        config = cfg.Config(configfile)
         return config
     except Exception as e:
         log.error('Unable to parse config: {0}'.format(e.args[0]))

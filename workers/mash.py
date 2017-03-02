@@ -1,7 +1,7 @@
 #!/usr/bin python
 
-from core.workers.baseworker import *
-from core.utils.pid import PID
+from workers.baseworker import *
+from utils.pid import PID
 from prometheus_client import start_http_server, Gauge
 
 

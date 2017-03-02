@@ -4,13 +4,13 @@ import time
 import datetime
 import json
 from datetime import timedelta as timedelta
-from core.defaults import *
-from core.messages import *
-from core.utils.coreutils import *
-from core.workers.worker_measurement import WorkerMeasurement
-import core.utils.logging as log
-from core.comm.sessiondetail import SessionDetail
-from core.comm.connection import WorkerConnection
+from defaults import *
+from messages import *
+import utils as utils
+from workers.worker_measurement import WorkerMeasurement
+import utils.logging as log
+from comm.sessiondetail import SessionDetail
+from comm.connection import WorkerConnection
 
 
 MessageFunctions = (MessageInfo,
@@ -57,13 +57,13 @@ class BaseWorker(threading.Thread):
 
     def create_device_threads(self):
         for i in self.input_config:
-            device = core.utils.coreutils.load_device(i, self, self.simulation)
+            device = utils.coreutils.load_device(i, self, self.simulation)
             if device is None:
                 return False
             device.run_device()
             self.inputs[i.name] = device
         for o in self.output_config:
-            device = core.utils.coreutils.load_device(o, self, self.simulation)
+            device = utils.coreutils.load_device(o, self, self.simulation)
             if device is None:
                 return False
             self.outputs[o.name] = device

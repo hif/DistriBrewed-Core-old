@@ -1,6 +1,6 @@
 #!/usr/bin python
-import core.utils.logging as log
-from core.messages import MessageSplit, MessageMeasurement
+import utils.logging as log
+from messages import MessageSplit, MessageMeasurement
 import json
 
 

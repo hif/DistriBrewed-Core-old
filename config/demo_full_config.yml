@@ -9,12 +9,12 @@ master:
 workers:
     - worker:
         name: "Mash Dude"
-        class: "core.workers.mash.MashWorker"
+        class: "workers.mash.MashWorker"
         simulation: "True"
         outputs:
             - output:
                 name: "Mash Tun"
-                device_class: "core.devices.ssr.SSR"
+                device_class: "devices.ssr.SSR"
                 io: "/sys/class/gpio/gpio17/value"
                 active: "False"
                 callback: "mash_heating_callback"
@@ -22,7 +22,7 @@ workers:
         inputs:
             - input:
                 name: "Temperature"
-                device_class: "core.devices.probe.Probe"
+                device_class: "devices.probe.Probe"
                 io: "/sys/bus/w1/devices/28-00000607f0de/w1_slave"
                 active: "False"
                 callback: "mash_temperature_callback"
@@ -30,12 +30,12 @@ workers:
 
     - worker:
         name: "Mr Boiler"
-        class: "core.workers.boil.BoilWorker"
+        class: "workers.boil.BoilWorker"
         simulation: "True"
         outputs:
             - output:
                 name: "Boiler"
-                device_class: "core.devices.ssr.SSR"
+                device_class: "devices.ssr.SSR"
                 io: "gpio2"
                 active: "False"
                 callback: "boil_heating_callback"
@@ -43,7 +43,7 @@ workers:
         inputs:
             - input:
                 name: "Temperature"
-                device_class: "core.devices.probe.Probe"
+                device_class: "devices.probe.Probe"
                 io: "gpio3"
                 active: "False"
                 callback: "boil_temperature_callback"
@@ -51,12 +51,12 @@ workers:
 
     - worker:
         name: "Fermat"
-        class: "core.workers.fermentation.FermentationWorker"
+        class: "workers.fermentation.FermentationWorker"
         simulation: "True"
         outputs:
             - output:
                 name: "Fermenter"
-                device_class: "core.devices.ssr.SSR"
+                device_class: "devices.ssr.SSR"
                 io: "gpio4"
                 active: "False"
                 callback: "fermentation_heating_callback"
@@ -64,7 +64,7 @@ workers:
         inputs:
             - input:
                 name: "Temperature"
-                device_class: "core.devices.probe.Probe"
+                device_class: "devices.probe.Probe"
                 io: "gpio5"
                 active: "False"
                 callback: "fermentation_temperature_callback"

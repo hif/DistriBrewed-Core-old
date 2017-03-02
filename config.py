@@ -1,8 +1,8 @@
 #!/usr/bin python
 import yaml
-import core.defaults as defaults
-import core.utils.logging as log
-from core.comm.connection import CONNECTION_MASTER_QUEUE
+import defaults as defaults
+import utils.logging as log
+from comm.connection import CONNECTION_MASTER_QUEUE
 
 
 # Config file keys

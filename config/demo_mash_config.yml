@@ -6,12 +6,12 @@ communication:
 workers:
     - worker:
         name: "Mash Worker"
-        class: "core.workers.mash.MashWorker"
+        class: "workers.mash.MashWorker"
         simulation: "True"
         outputs:
             - output:
                 name: "Mash Tun"
-                device_class: "core.devices.ssr.SSR"
+                device_class: "devices.ssr.SSR"
                 io: "/sys/class/gpio/gpio17/value"
                 active: "False"
                 callback: "mash_heating_callback"
@@ -19,7 +19,7 @@ workers:
         inputs:
             - input:
                 name: "Temperature"
-                device_class: "core.devices.probe.Probe"
+                device_class: "devices.probe.Probe"
                 io: "/sys/bus/w1/devices/28-00000607f0de/w1_slave"
                 active: "False"
                 callback: "mash_temperature_callback"

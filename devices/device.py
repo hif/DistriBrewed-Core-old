@@ -2,7 +2,7 @@
 import threading
 import time
 
-import core.utils.logging as log
+import utils.logging as log
 
 
 DEVICE_DEBUG_CYCLE_TIME = 1.0

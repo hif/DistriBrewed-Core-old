@@ -1,7 +1,7 @@
 #!/usr/bin python
 
-from core.workers.baseworker import *
-from core.utils.pid import PID
+from workers.baseworker import *
+from utils.pid import PID
 
 BOIL_DEBUG_INIT_TEMP = 60.0
 BOIL_DEBUG_CYCLE_TIME = 10.0
