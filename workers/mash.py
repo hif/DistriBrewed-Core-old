@@ -41,7 +41,7 @@ class MashWorker(BaseWorker):
             self.pause_time = timedelta(seconds=0)
             self.do_work(data)
         except Exception as e:
-            log.debug('Mash worker failed to start work: {0}'.format(e.args[0]))
+            log.debug('Mash worker failed to start work: {0}'.format(e.args[0]), only_std=True)
             self.stop_all_devices()
 
     def do_work(self, data):
@@ -67,9 +67,9 @@ class MashWorker(BaseWorker):
             if self.pid is not None:
                 calc = self.pid.calculate(measured_value, self.current_set_temperature)
                 log.debug('{0} reports measured value {1} and pid calculated {2}'.
-                          format(self.name, measured_value, calc))
+                          format(self.name, measured_value, calc), only_std=True)
             else:
-                log.debug('{0} reports measured value {1}'.format(self.name, measured_value))
+                log.debug('{0} reports measured value {1}'.format(self.name, measured_value), only_std=True)
             self.temp_gauge.labels("Heat").set(measured_value)
             self.current_temperature = measured_value
             measurement = self.generate_worker_measurement(self, self.inputs['Temperature'])
@@ -95,12 +95,12 @@ class MashWorker(BaseWorker):
             elif self.pid is not None:
                 self.outputs['Mash Tun'].write(calc)
         except Exception as e:
-            log.error('Mash worker unable to react to temperature update, shutting down: {0}'.format(e.args[0]))
+            log.error('Mash worker unable to react to temperature update, shutting down: {0}'.format(e.args[0]), only_std=True)
             self.stop_all_devices()
 
     def mash_heating_callback(self, heating_time):
         try:
-            log.debug('{0} reports heating time of {1} seconds'.format(self.name, heating_time))
+            log.debug('{0} reports heating time of {1} seconds'.format(self.name, heating_time), only_std=True)
             device = self.outputs['Mash Tun']
             measurement = self.generate_worker_measurement(self, device)
             measurement.value = heating_time
@@ -132,7 +132,7 @@ class MashWorker(BaseWorker):
                                          MASH_DEBUG_DELAY,
                                          MASH_DEBUG_INIT_TEMP)
                 except Exception as e:
-                    log.debug('Mash worker unable to update test temperature for debug: {0}'.format(e.args[0]))
+                    log.debug('Mash worker unable to update test temperature for debug: {0}'.format(e.args[0]), only_std=True)
         except Exception as e:
-            log.error('Mash worker unable to react to heating update, shutting down: {0}'.format(e.args[0]))
+            log.error('Mash worker unable to react to heating update, shutting down: {0}'.format(e.args[0]), only_std=True)
             self.stop_all_devices()
