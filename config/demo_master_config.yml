@@ -1,0 +1,71 @@
+communication:
+    ip: "192.168.1.77"
+    master_port: "9991"
+    worker_port: "9992"
+
+master:
+    name: "BrewMaster"
+
+workers:
+    - worker:
+        name: "Mash Dude"
+        class: "core.workers.mash.MashWorker"
+        simulation: "True"
+        outputs:
+            - output:
+                name: "Mash Tun"
+                device_class: "core.devices.ssr.SSR"
+                io: "/sys/class/gpio/gpio17/value"
+                active: "False"
+                callback: "mash_heating_callback"
+                cycle_time: "10.0"
+        inputs:
+            - input:
+                name: "Temperature"
+                device_class: "core.devices.probe.Probe"
+                io: "/sys/bus/w1/devices/28-00000607f0de/w1_slave"
+                active: "False"
+                callback: "mash_temperature_callback"
+                cycle_time: "10.0"
+
+    - worker:
+        name: "Mr Boiler"
+        class: "core.workers.boil.BoilWorker"
+        simulation: "True"
+        outputs:
+            - output:
+                name: "Boiler"
+                device_class: "core.devices.ssr.SSR"
+                io: "gpio2"
+                active: "False"
+                callback: "boil_heating_callback"
+                cycle_time: "10.0"
+        inputs:
+            - input:
+                name: "Temperature"
+                device_class: "core.devices.probe.Probe"
+                io: "gpio3"
+                active: "False"
+                callback: "boil_temperature_callback"
+                cycle_time: "10.0"
+
+    - worker:
+        name: "Fermat"
+        class: "core.workers.fermentation.FermentationWorker"
+        simulation: "True"
+        outputs:
+            - output:
+                name: "Fermenter"
+                device_class: "core.devices.ssr.SSR"
+                io: "gpio4"
+                active: "False"
+                callback: "fermentation_heating_callback"
+                cycle_time: "10.0"
+        inputs:
+            - input:
+                name: "Temperature"
+                device_class: "core.devices.probe.Probe"
+                io: "gpio5"
+                active: "False"
+                callback: "fermentation_temperature_callback"
+                cycle_time: "10.0"
