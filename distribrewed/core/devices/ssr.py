@@ -3,7 +3,7 @@ import re
 import threading
 import time
 
-from devices.device import Device, DEVICE_DEBUG_CYCLE_TIME
+from distribrewed.core.devices.device import Device, DEVICE_DEBUG_CYCLE_TIME
 
 
 class SSR(Device):

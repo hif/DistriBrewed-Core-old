@@ -1,10 +1,12 @@
 #!/usr/bin python
 import importlib
-import config as cfg
-import defaults as defaults
-import utils.logging as log
-import devices as devices
-import workers as workers
+
+import distribrewed.core.config as cfg
+import distribrewed.core.defaults as defaults
+import distribrewed.core.devices as devices
+import distribrewed.core.utils.logging as log
+
+import distribrewed.core.workers as workers
 
 
 def construct_class_instance(class_module_path, param=None):

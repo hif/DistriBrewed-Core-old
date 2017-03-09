@@ -1,17 +1,18 @@
 #!/usr/bin python
-import threading
-import time
 import datetime
 import json
+import threading
+import time
 from datetime import timedelta as timedelta
-from defaults import *
-from messages import *
-import utils as utils
-from workers.worker_measurement import WorkerMeasurement
-import utils.logging as log
-from comm.sessiondetail import SessionDetail
-from comm.connection import WorkerConnection
 
+import distribrewed.core.utils as utils
+import distribrewed.core.utils.logging as log
+from distribrewed.core.defaults import *
+from distribrewed.core.messages import *
+from distribrewed.core.workers.worker_measurement import WorkerMeasurement
+
+from distribrewed.core.comm.sessiondetail import SessionDetail
+from distribrewed.core.comm.connection import WorkerConnection
 
 MessageFunctions = (MessageInfo,
                     MessagePause,

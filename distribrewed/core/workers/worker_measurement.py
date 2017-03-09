@@ -1,7 +1,9 @@
 #!/usr/bin python
-import utils.logging as log
-from messages import MessageSplit, MessageMeasurement
 import json
+
+from distribrewed.core.messages import MessageSplit, MessageMeasurement
+
+import distribrewed.core.utils.logging as log
 
 
 class WorkerMeasurement:

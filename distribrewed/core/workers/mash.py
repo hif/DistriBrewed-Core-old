@@ -1,9 +1,8 @@
 #!/usr/bin python
 
-from workers.baseworker import *
-from utils.pid import PID
 from prometheus_client import start_http_server, Gauge
 
+from distribrewed.core.utils.pid import PID
 
 MASH_DEBUG_INIT_TEMP = 60.0
 MASH_DEBUG_CYCLE_TIME = 10.0

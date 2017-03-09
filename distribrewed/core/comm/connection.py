@@ -1,7 +1,8 @@
 #!/usr/bin python
 
 import zmq
-import utils.logging as log
+
+import distribrewed.core.utils.logging as log
 
 CONNECTION_MASTER_QUEUE = "MasterQueue"
 CONNECTION_BROADCAST_QUEUE = "BroadcastQueue"
