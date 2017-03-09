@@ -1,0 +1,21 @@
+workers:
+    - worker:
+        name: "Mash Dude"
+        class: "core.workers.mash.MashWorker"
+        simulation: "True"
+        outputs:
+            - output:
+                name: "Mash Tun"
+                device_class: "core.devices.ssr.SSR"
+                io: "/sys/class/gpio/gpio17/value"
+                active: "False"
+                callback: "mash_heating_callback"
+                cycle_time: "10.0"
+        inputs:
+            - input:
+                name: "Temperature"
+                device_class: "core.devices.probe.Probe"
+                io: "/sys/bus/w1/devices/28-00000607f0de/w1_slave"
+                active: "False"
+                callback: "mash_temperature_callback"
+                cycle_time: "10.0"
