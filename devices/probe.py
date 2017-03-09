@@ -1,8 +1,8 @@
 #!/usr/bin python
 import time
 
-from core.devices.device import Device, DEVICE_DEBUG_CYCLE_TIME
-import core.utils.logging as log
+from distribrewed.core.devices.device import Device, DEVICE_DEBUG_CYCLE_TIME
+import distribrewed.core.utils.logging as log
 
 
 class Probe(Device):

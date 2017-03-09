@@ -1,8 +1,8 @@
 #!/usr/bin python
 import random
 
-from core.workers.baseworker import *
-from core.utils.pid import PID
+from distribrewed.core.workers.baseworker import *
+from distribrewed.core.utils.pid import PID
 
 
 FERMENTATION_DEBUG_INIT_TEMP = 60.0

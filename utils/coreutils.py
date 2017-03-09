@@ -1,8 +1,8 @@
 #!/usr/bin python
 import importlib
-import core.config
-import core.defaults as defaults
-import core.utils.logging as log
+import distribrewed.core.config
+import distribrewed.core.defaults as defaults
+import distribrewed.core.utils.logging as log
 
 
 def construct_class_instance(class_module_path, param=None):
