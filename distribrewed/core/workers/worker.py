@@ -1,8 +1,9 @@
 #!/usr/bin python
 import sys
 
-from distribrewed.core.utils import coreutils
 import distribrewed.core.defaults as defaults
+
+from distribrewed.core.utils import coreutils
 
 configfile = defaults.DEFAULT_CONFIG
 

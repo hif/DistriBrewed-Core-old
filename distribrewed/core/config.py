@@ -1,9 +1,9 @@
 #!/usr/bin python
 import yaml
+
 import distribrewed.core.defaults as defaults
 import distribrewed.core.utils.logging as log
 from distribrewed.core.comm.connection import CONNECTION_MASTER_QUEUE
-
 
 # Config file keys
 CONFIG_COMMUNICATION = 'communication'

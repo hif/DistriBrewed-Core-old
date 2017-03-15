@@ -1,6 +1,7 @@
 #!/usr/bin python
 
 import zmq
+
 import distribrewed.core.utils.logging as log
 
 CONNECTION_MASTER_QUEUE = "MasterQueue"

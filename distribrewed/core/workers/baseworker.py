@@ -4,12 +4,13 @@ import time
 import datetime
 import json
 from datetime import timedelta as timedelta
-from distribrewed.core.defaults import *
-from distribrewed.core.messages import *
-from distribrewed.core.workers.worker_measurement import WorkerMeasurement
-import distribrewed.core.utils.logging as log
-from distribrewed.core.comm.sessiondetail import SessionDetail
-from distribrewed.core.comm.connection import WorkerConnection
+from core.defaults import *
+from core.messages import *
+from core.utils.coreutils import *
+from core.workers.worker_measurement import WorkerMeasurement
+import core.utils.logging as log
+from core.comm.sessiondetail import SessionDetail
+from core.comm.connection import WorkerConnection
 
 
 MessageFunctions = (MessageInfo,

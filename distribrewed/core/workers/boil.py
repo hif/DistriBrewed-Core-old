@@ -1,6 +1,5 @@
 #!/usr/bin python
 
-from distribrewed.core.workers.baseworker import *
 from distribrewed.core.utils.pid import PID
 
 BOIL_DEBUG_INIT_TEMP = 60.0

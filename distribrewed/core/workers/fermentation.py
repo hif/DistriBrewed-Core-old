@@ -1,7 +1,6 @@
 #!/usr/bin python
 import random
 
-from distribrewed.core.workers.baseworker import *
 from distribrewed.core.utils.pid import PID
 
 
