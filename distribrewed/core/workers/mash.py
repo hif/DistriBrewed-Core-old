@@ -1,8 +1,11 @@
 #!/usr/bin python
+from datetime import timedelta
 
 from prometheus_client import start_http_server, Gauge
 
 from distribrewed.core.utils.pid import PID
+from distribrewed.core.workers.baseworker import BaseWorker
+import distribrewed.core.utils.logging as log
 
 MASH_DEBUG_INIT_TEMP = 60.0
 MASH_DEBUG_CYCLE_TIME = 10.0

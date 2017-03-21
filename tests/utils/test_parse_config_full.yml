@@ -9,7 +9,7 @@ master:
 workers:
     - worker:
         name: "Mash Dude"
-        class: "workers.mash.MashWorker"
+        class: "distribrewed.core.workers.mash.MashWorker"
         simulation: "True"
         outputs:
             - output:
