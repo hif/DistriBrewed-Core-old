@@ -7,3 +7,4 @@ ADD . ${DIR}
 WORKDIR ${DIR}
 
 RUN pip install -r requirements.txt
+RUN pip install .

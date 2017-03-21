@@ -4,16 +4,13 @@ from unittest import TestCase
 
 from distribrewed.core.defaults import load_from_env
 from distribrewed.core.utils.coreutils import parse_config
-
-
-def _get_full_file_path(relative_path):
-    return os.path.join(os.path.dirname(os.path.realpath(__file__)), relative_path)
+from tests.helpers import get_full_file_path
 
 
 class TestParseConfig(TestCase):
     def test_empty_config(self):
         warnings.simplefilter("ignore", ResourceWarning)
-        config_file = _get_full_file_path('test_parse_config_empty.yml')
+        config_file = get_full_file_path('utils/test_parse_config_empty.yml')
         config = parse_config(config_file)
 
         self.assertIsNotNone(config)
@@ -30,7 +27,7 @@ class TestParseConfig(TestCase):
 
     def test_communication_config(self):
         warnings.simplefilter("ignore", ResourceWarning)
-        config_file = _get_full_file_path('test_parse_config_full.yml')
+        config_file = get_full_file_path('utils/test_parse_config_full.yml')
         config = parse_config(config_file)
 
         self.assertIsNotNone(config)
@@ -68,7 +65,7 @@ class TestParseConfigEnv(TestCase):
 
     def test_empty_config_env_vars(self):
         warnings.simplefilter("ignore", ResourceWarning)
-        config = parse_config(_get_full_file_path('test_parse_config_empty.yml'))
+        config = parse_config(get_full_file_path('utils/test_parse_config_empty.yml'))
         self.assertIsNotNone(config)
         self.assertIsNotNone(config.communication)
         self.assertEqual(config.communication.ip, self.MASTER_IP)
